@@ -1,34 +1,31 @@
+name: Create release
+
 on:
   push:
-    # Sequence of patterns matched against refs/tags
     tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
-
-name: Create Release
+      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
   build:
-    name: Create Release
-    runs-on: ubuntu-latest
+    name: "🚀 Release"
+    runs-on: ubuntu-18.04
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: "📥 Check-out"
+        uses: actions/checkout@v1
+      - name: "✏️ Generate changelog"
+        id: generate-changelog
+        uses: heinrichreimer/action-github-changelog-generator@v2.1
         with:
-          fetch-depth: 0
-      - name: Changelog
-        uses: scottbrenner/generate-changelog-action@master
-        id: Changelog
-        env:
-          REPO: ${{ github.repository }}
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@latest
+          onlyLastTag: "true"
+          stripHeaders: "true"
+          stripGeneratorNotice: "true"
+      - name: "🚀 Create GitHub release"
+        uses: actions/create-release@v1.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          body: |
-            ${{ steps.Changelog.outputs.changelog }}
-          draft: false
+          body: ${{ steps.generate-changelog.outputs.changelog }}
+          draft: true
           prerelease: false
