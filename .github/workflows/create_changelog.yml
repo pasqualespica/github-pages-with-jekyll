@@ -29,3 +29,9 @@ jobs:
           body: ${{ steps.generate-changelog.outputs.changelog }}
           draft: true
           prerelease: false
+      - name: " creaa MD ..."
+        uses: srepollock/changelog-generator-action@master
+        with:
+          REPO_NAME: 'pasqualespica/github-pages-with-jekyll'
+          ACCESS_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          PATH: '/CHANGELOG.md'
