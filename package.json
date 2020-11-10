@@ -1,22 +1,25 @@
 {
-  "name": "github-pages-with-jekyll",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pasqualespica/github-pages-with-jekyll.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/pasqualespica/github-pages-with-jekyll/issues"
-  },
-  "homepage": "https://github.com/pasqualespica/github-pages-with-jekyll#readme"
+    "name": "github-pages-with-jekyll",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "directories": {
+        "doc": "docs"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pasqualespica/github-pages-with-jekyll.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/pasqualespica/github-pages-with-jekyll/issues"
+    },
+    "homepage": "https://github.com/pasqualespica/github-pages-with-jekyll#readme",
+    "devDependencies": {
+        "generate-changelog": "^1.8.0"
+    }
 }
